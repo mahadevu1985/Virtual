@@ -1,8 +1,76 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<VirtualGit.Models.VirtualModel>
+
+@{
+    ViewData["Title"]="Index";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h2>Created Data</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor( model => model.Buid )
+            </th>
+            <th>
+                @Html.DisplayNameFor( model => model.OrderNumber )
+            </th>
+            <th>
+                @Html.DisplayNameFor( model => model.DPID )
+            </th>
+
+            <th>
+                @Html.DisplayNameFor( model => model.ID )
+            </th>
+            <th>
+                @Html.DisplayNameFor( model => model.TestCase )
+            </th>
+            <th>
+                @Html.DisplayNameFor( model => model.User )
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor( modelItem => item.Buid )
+                </td>
+                <td>
+                    @Html.DisplayFor( modelItem => item.OrderNumber )
+                </td>
+                <td>
+                    @Html.DisplayFor( modelItem => item.DPID )
+                </td>
+
+                <td>
+                    @Html.DisplayFor( modelItem => item.ID )
+                </td>
+                <td>
+                    @Html.DisplayFor( modelItem => item.TestCase )
+                </td>
+                <td>
+                    @Html.DisplayFor( modelItem => item.User )
+                </td>
+
+                <td>
+
+                    @Html.ActionLink( "Edit", "Edit", new { id = item.ID } ) |
+
+
+                    @Html.ActionLink("Delete","Delete",
+    new { confirm = true, id = item.ID  },
+    new { onclick = "return confirm('Do you really want to delete this?')" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

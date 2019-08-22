@@ -1,0 +1,64 @@
+﻿@model VirtualGit.Models.VirtualModel
+
+@{
+    ViewData["Title"]="Edit";
+}
+<hr />
+
+<form asp-action="Edit">
+    <a asp-action="Index">Back to List</a>
+    <div class="form-group" ng-app="myFormApp" ng-controller="CustomerController">
+        {{prettyPrint}}
+        <div class="row">
+            <div class="col-sm-6">
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label asp-for="Buid" class="control-label"></label>
+                        <input asp-for="Buid" class="form-control" required />
+                        <span asp-validation-for="Buid" class="text-danger"></span>
+                    </div>
+                    <div class="col-sm-6">
+                        <label asp-for="OrderNumber" class="control-label"></label>
+                        <input asp-for="OrderNumber" class="form-control" required />
+                        <span asp-validation-for="OrderNumber" class="text-danger"></span>
+                    </div>
+                    <div class="col-sm-6">
+                        <label asp-for="DPID" class="control-label"></label>
+                        <input asp-for="DPID" class="form-control" required />
+                        <span asp-validation-for="DPID" class="text-danger"></span>
+                    </div>
+                    <div class="col-sm-6">
+                        <label asp-for="TestCase" class="control-label"></label>
+                        <input asp-for="TestCase" class="form-control" required />
+                        <span asp-validation-for="TestCase" class="text-danger"></span>
+                    </div>
+
+
+                </div>
+                <div class="form-group">
+                    <br />
+                    <input type="submit" value="Update" class="btn btn-primary" />
+                </div>
+
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label asp-for="GossResponse" class="control-label"></label>
+                    <textarea asp-for="GossResponse" rows="40" col="100" class="form-control text-box multi-line" style="font-size: 9pt" required></textarea>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync ( "_ValidationScriptsPartial" );}
+}

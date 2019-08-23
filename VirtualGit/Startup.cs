@@ -28,7 +28,7 @@ namespace VirtualGit
                 options.MinimumSameSitePolicy=SameSiteMode.None;
             } );
 
-            services.AddSingleton<IVirtualModelRepository, VirtualModelRepository> ();
+            services.AddScoped<IVirtualModelRepository, VirtualModelRepository> ();
             services.AddSingleton<IConfiguration> ( Configuration );
             services.AddMvc ().SetCompatibilityVersion ( CompatibilityVersion.Version_2_2 );
         }
